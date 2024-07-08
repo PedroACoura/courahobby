@@ -1,9 +1,12 @@
 package br.com.courahobby.courahobby.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class Filamentos {
+
     private int code;
     private String tipo;
     private String descricao;
@@ -13,7 +16,7 @@ public class Filamentos {
     private float dencidade;
     private float diametro;
 
-    public void Filamento(String tipo, String descricao, String fabricante, float valorKg) {
+    public void setFilamento(String tipo, String descricao, String fabricante, float valorKg) {
         this.tipo = tipo;
         this.descricao = descricao;
         this.fabricante = fabricante;
@@ -22,6 +25,16 @@ public class Filamentos {
         this.code++;
         this.dencidade = getDencidade(tipo);
         this.diametro = 1.75f;
+    }
+    public void setFilamento(String tipo, String descricao, String fabricante, float valorKg, float diametro){
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.fabricante = fabricante;
+        this.valorKg = valorKg;
+        this.valorG = getValorG(valorKg);
+        this.code++;
+        this.dencidade = getDencidade(tipo);
+        this.diametro = diametro;
     }
     public float getValorG(float valorKg) {
         return valorG = this.valorKg/1000;
